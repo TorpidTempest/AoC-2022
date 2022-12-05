@@ -1,4 +1,3 @@
-# ? COPY ME FOR EACH PUZZLE
 from dataclasses import dataclass
 from my_utils.reader import get_puzzle_input
 from my_utils.logger import get_logger

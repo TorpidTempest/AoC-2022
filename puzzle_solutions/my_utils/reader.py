@@ -1,6 +1,6 @@
-def get_puzzle_input(filename: str) -> list[str]:
+def get_puzzle_input(filename: str, stripped: bool = True) -> list[str]:
     output = []
-    with open(file=filename, mode='r') as f:
+    with open(file=filename, mode="r") as f:
         for line in f:
-            output.append(line.strip())
+            output.append(line.strip() if stripped else line)
     return output
