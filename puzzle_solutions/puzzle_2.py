@@ -9,6 +9,7 @@ def part_1():
     score = 0
     WINS = {"A Y", "B Z", "C X"}
     DRAWS = {"A X", "B Y", "C Z"}
+    
     for line in INPUT:
         pick = line.split()[1]
         match pick:
@@ -27,8 +28,58 @@ def part_1():
     return score
 
 
-def part_2():
-    pass
+def part_2() -> int:
+    score = 0
+    class Pick:
+        ROCK = "A"
+        PAPER = "B"
+        SCISSORS = "C"
+    class Outcome:
+        LOSE = 'X'
+        DRAW = 'Y'
+        WIN = 'Z'
+    
+    for line in INPUT:
+        op = line.split()[0]
+        result = line.split()[1]
+
+        match op:
+            case Pick.ROCK:
+                match result:
+                    case Outcome.LOSE:
+                        score += 3
+                    case Outcome.DRAW:
+                        score += 1
+                        score += 3
+                    case Outcome.WIN:
+                        score += 2
+                        score += 6
+                        
+            case Pick.PAPER:
+                match result:
+                    case Outcome.LOSE:
+                        score += 1
+                    case Outcome.DRAW:
+                        score += 2
+                        score += 3
+                    case Outcome.WIN:
+                        score += 3
+                        score += 6
+                        
+            case Pick.SCISSORS:
+                match result:
+                    case Outcome.LOSE:
+                        score += 2
+                    case Outcome.DRAW:
+                        score += 3
+                        score += 3
+                    case Outcome.WIN:
+                        score += 1
+                        score += 6
+                    
+    return score    
+        
+        
 
 
 def main() -> None:
