@@ -41,7 +41,7 @@ def get_logger():
     # Add file handler
     fh = logging.FileHandler('app.log')
     fh.setLevel(logging.DEBUG)
-    ff = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    ff = logging.Formatter('%(asctime)s - %(name)s - %(lineno)d - %(levelname)s - %(message)s')
     fh.setFormatter(ff)
     log.addHandler(fh)
 
